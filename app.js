@@ -28,5 +28,21 @@ app.use(
   })
 );
 
+//=================== Routes
+// Landing Page
+app.get("/", appController.landing_page);
+
+// Login Page
+app.get("/login", appController.login_get);
+app.post("/login", appController.login_post);
+
+// Register Page
+app.get("/register", appController.register_get);
+app.post("/register", appController.register_post);
+
+// Dashboard Page
+app.get("/dashboard", isAuth, appController.dashboard_get);
+
+app.post("/logout", appController.logout_post);
 
 app.listen(5000, console.log("App Running on http://localhost:5000"));
